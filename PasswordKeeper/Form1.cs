@@ -21,11 +21,11 @@ namespace PasswordKeeper
         private void button1_Click(object sender, EventArgs e)
         {
             string userName = textBox1.Text;
-            string password = textBox1.Text;
+            string password = textBox2.Text;
 
             SqlConnection sc = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename='W:\Work\Projects\Personal Password Manager\PasswordKeeper\PasswordKeeper\Passwords.mdf';Integrated Security=True");
             sc.Open();
-            string query = "SELECT * FROM Users WHERE Username = '" + userName + "'" + "AND Password = '" + password + "'";
+            string query = "SELECT * FROM users WHERE Username = '" + userName + "'" + "AND Password = '" + password + "'";
             SqlCommand command = new SqlCommand(query, sc);
 
             SqlDataReader reader = command.ExecuteReader();
@@ -33,7 +33,10 @@ namespace PasswordKeeper
             while (reader.Read())
             {
                 string name = reader["Username"].ToString();
-
+                PasswordsTable pt = new PasswordsTable();
+                pt.UserName = userName;
+                pt.Show();
+                this.Hide();
             }
 
             sc.Close();
