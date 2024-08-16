@@ -1,4 +1,8 @@
-﻿namespace PasswordKeeper {
+﻿namespace PasswordKeeper
+{
+}
+
+namespace PasswordKeeper {
     
     
     public partial class PasswordsDataSet {
