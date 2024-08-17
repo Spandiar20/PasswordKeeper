@@ -35,6 +35,7 @@ namespace PasswordKeeper
                 string name = reader["Username"].ToString();
                 PasswordsTable pt = new PasswordsTable();
                 pt.UserName = userName;
+                pt.UserId = reader["uId"].ToString();
                 pt.Show();
                 this.Hide();
             }

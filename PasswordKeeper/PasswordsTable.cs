@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -13,6 +14,7 @@ namespace PasswordKeeper
     public partial class PasswordsTable : Form
     {
         public string UserName;
+        public string UserId;
 
         public PasswordsTable()
         {
@@ -22,6 +24,35 @@ namespace PasswordKeeper
         private void PasswordsTable_Load(object sender, EventArgs e)
         {
             label2.Text = UserName;
+
+            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename='W:\Work\Projects\Personal Password Manager\PasswordKeeper\PasswordKeeper\Passwords.mdf';Integrated Security=True");
+            connection.Open();
+
+            SqlDataAdapter adapt = new SqlDataAdapter("SELECT * FROM Accounts WHERE UserId = " + UserId + "" , connection);
+            DataTable dtb1 = new DataTable();
+            adapt.Fill(dtb1);
+
+            dataGridView1.AutoGenerateColumns = false;
+            dataGridView1.DataSource = dtb1;
+
+            connection.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string searchText = textBox1.Text;
+
+            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename='W:\Work\Projects\Personal Password Manager\PasswordKeeper\PasswordKeeper\Passwords.mdf';Integrated Security=True");
+            connection.Open();
+
+            SqlDataAdapter adapt = new SqlDataAdapter("SELECT * FROM Accounts WHERE UserId = " + UserId + " AND AccountName LIKE '%" + searchText + "%'", connection);
+            DataTable dtb1 = new DataTable();
+            adapt.Fill(dtb1);
+
+            dataGridView1.AutoGenerateColumns = false;
+            dataGridView1.DataSource = dtb1;
+
+            connection.Close();
         }
     }
 }
