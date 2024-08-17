@@ -72,7 +72,16 @@ namespace PasswordKeeper
 
         private void button2_Click(object sender, EventArgs e)
         {
-            AddUpdatePage addPage = new AddUpdatePage();
+            AddAccount add = new AddAccount();
+            add.Show();
+            add.UserId = UserId;
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            LogPage log = new LogPage();
+            log.Show();
+            log.UserId = UserId;
         }
     }
 }
