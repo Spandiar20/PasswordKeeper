@@ -54,5 +54,25 @@ namespace PasswordKeeper
 
             connection.Close();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename='W:\Work\Projects\Personal Password Manager\PasswordKeeper\PasswordKeeper\Passwords.mdf';Integrated Security=True");
+            connection.Open();
+
+            SqlDataAdapter adapt = new SqlDataAdapter("SELECT * FROM Accounts WHERE UserId = " + UserId + "", connection);
+            DataTable dtb1 = new DataTable();
+            adapt.Fill(dtb1);
+
+            dataGridView1.AutoGenerateColumns = false;
+            dataGridView1.DataSource = dtb1;
+
+            connection.Close();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            AddUpdatePage addPage = new AddUpdatePage();
+        }
     }
 }
