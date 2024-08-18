@@ -19,10 +19,12 @@ namespace PasswordKeeper
             InitializeComponent();
         }
 
+        static string AccountName;
+        static string Password;
         private void button1_Click(object sender, EventArgs e)
         {
-            string AccountName = textBox1.Text;
-            string Password = textBox2.Text;
+            AccountName = textBox1.Text;
+            Password = textBox2.Text;
             textBox1.Clear();
             textBox2.Clear();
             DateTime time = DateTime.Now;
@@ -48,7 +50,7 @@ namespace PasswordKeeper
             //Getting previous account infos
 
             SqlConnection sc = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename='W:\Work\Projects\Personal Password Manager\PasswordKeeper\PasswordKeeper\Passwords.mdf';Integrated Security=True");
-            string query = "SELECT * FROM Accounts WHERE AccountName = '" + AccountName + "'" + "AND Password = '" + Password + "'";
+            string query = "SELECT * FROM Accounts WHERE AccountName = '" + AccountName + "'";
             sc.Open();
             SqlCommand command = new SqlCommand(query, sc);
 
@@ -72,9 +74,10 @@ namespace PasswordKeeper
             query = "UPDATE Accounts SET Date='" + time + "' WHERE AccountName='" + AccountName + "'";
             command = new SqlCommand(query, sc);
             command.ExecuteNonQuery();
-    
+
             //Updating accounts log table
 
+            Console.WriteLine(AccId);
             query = "INSERT INTO AccountLogs (Date,Password,AccountId,PrevPassword) VALUES ('" + time + "','" + Password + "','" + AccId + "','" + PrevPassword + "')";
             command = new SqlCommand(query, sc);
             command.ExecuteNonQuery();

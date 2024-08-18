@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Account = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Password = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DateSet = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PrevPassword = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label2 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.Account = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Password = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DateSet = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PrevPassword = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,6 +58,34 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(676, 638);
             this.dataGridView1.TabIndex = 12;
+            // 
+            // Account
+            // 
+            this.Account.DataPropertyName = "AccountName";
+            this.Account.HeaderText = "Account";
+            this.Account.Name = "Account";
+            this.Account.ReadOnly = true;
+            // 
+            // Password
+            // 
+            this.Password.DataPropertyName = "Password";
+            this.Password.HeaderText = "Password";
+            this.Password.Name = "Password";
+            this.Password.ReadOnly = true;
+            // 
+            // DateSet
+            // 
+            this.DateSet.DataPropertyName = "Date";
+            this.DateSet.HeaderText = "Date set";
+            this.DateSet.Name = "DateSet";
+            this.DateSet.ReadOnly = true;
+            // 
+            // PrevPassword
+            // 
+            this.PrevPassword.DataPropertyName = "PrevPassword";
+            this.PrevPassword.HeaderText = "Previous Password";
+            this.PrevPassword.Name = "PrevPassword";
+            this.PrevPassword.ReadOnly = true;
             // 
             // label2
             // 
@@ -117,34 +145,6 @@
             this.label1.TabIndex = 10;
             this.label1.Text = "Logs";
             // 
-            // Account
-            // 
-            this.Account.DataPropertyName = "AccountName";
-            this.Account.HeaderText = "Account";
-            this.Account.Name = "Account";
-            this.Account.ReadOnly = true;
-            // 
-            // Password
-            // 
-            this.Password.DataPropertyName = "Password";
-            this.Password.HeaderText = "Password";
-            this.Password.Name = "Password";
-            this.Password.ReadOnly = true;
-            // 
-            // DateSet
-            // 
-            this.DateSet.DataPropertyName = "Date";
-            this.DateSet.HeaderText = "Date set";
-            this.DateSet.Name = "DateSet";
-            this.DateSet.ReadOnly = true;
-            // 
-            // PrevPassword
-            // 
-            this.PrevPassword.DataPropertyName = "PrevPassword";
-            this.PrevPassword.HeaderText = "Previous Password";
-            this.PrevPassword.Name = "PrevPassword";
-            this.PrevPassword.ReadOnly = true;
-            // 
             // LogPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -159,7 +159,6 @@
             this.Controls.Add(this.textBox1);
             this.Name = "LogPage";
             this.Text = "LogPage";
-            this.TopMost = true;
             this.Load += new System.EventHandler(this.LogPage_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

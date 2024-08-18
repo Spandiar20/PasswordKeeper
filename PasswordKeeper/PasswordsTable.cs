@@ -15,6 +15,8 @@ namespace PasswordKeeper
     {
         public string UserName;
         public string UserId;
+        SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename='W:\Work\Projects\Personal Password Manager\PasswordKeeper\PasswordKeeper\Passwords.mdf';Integrated Security=True");
+
 
         public PasswordsTable()
         {
@@ -25,7 +27,6 @@ namespace PasswordKeeper
         {
             label2.Text = UserName;
 
-            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename='W:\Work\Projects\Personal Password Manager\PasswordKeeper\PasswordKeeper\Passwords.mdf';Integrated Security=True");
             connection.Open();
 
             SqlDataAdapter adapt = new SqlDataAdapter("SELECT * FROM Accounts WHERE UserId = " + UserId + "" , connection);
@@ -42,7 +43,6 @@ namespace PasswordKeeper
         {
             string searchText = textBox1.Text;
 
-            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename='W:\Work\Projects\Personal Password Manager\PasswordKeeper\PasswordKeeper\Passwords.mdf';Integrated Security=True");
             connection.Open();
 
             SqlDataAdapter adapt = new SqlDataAdapter("SELECT * FROM Accounts WHERE UserId = " + UserId + " AND AccountName LIKE '%" + searchText + "%'", connection);
@@ -57,7 +57,6 @@ namespace PasswordKeeper
 
         private void button4_Click(object sender, EventArgs e)
         {
-            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename='W:\Work\Projects\Personal Password Manager\PasswordKeeper\PasswordKeeper\Passwords.mdf';Integrated Security=True");
             connection.Open();
 
             SqlDataAdapter adapt = new SqlDataAdapter("SELECT * FROM Accounts WHERE UserId = " + UserId + "", connection);

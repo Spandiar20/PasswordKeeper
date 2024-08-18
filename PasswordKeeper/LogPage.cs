@@ -14,6 +14,8 @@ namespace PasswordKeeper
     public partial class LogPage : Form
     {
         public string UserId;
+        SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename='W:\Work\Projects\Personal Password Manager\PasswordKeeper\PasswordKeeper\Passwords.mdf';Integrated Security=True");
+
         public LogPage()
         {
             InitializeComponent();
@@ -21,7 +23,6 @@ namespace PasswordKeeper
 
         private void LogPage_Load(object sender, EventArgs e)
         {
-            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename='W:\Work\Projects\Personal Password Manager\PasswordKeeper\PasswordKeeper\Passwords.mdf';Integrated Security=True");
             connection.Open();
 
             SqlDataAdapter adapt = new SqlDataAdapter("SELECT * FROM AccountLogs INNER JOIN Accounts ON AccountLogs.AccountId = Accounts.aId WHERE UserId = '" + UserId + "'", connection);
@@ -36,10 +37,9 @@ namespace PasswordKeeper
 
         private void button4_Click(object sender, EventArgs e)
         {
-            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename='W:\Work\Projects\Personal Password Manager\PasswordKeeper\PasswordKeeper\Passwords.mdf';Integrated Security=True");
             connection.Open();
 
-            SqlDataAdapter adapt = new SqlDataAdapter("SELECT * FROM AccountLogs INNER JOIN Accounts ON AccountLogs.AccountId = Accounts.aId WHERE UserId = " + UserId + "", connection);
+            SqlDataAdapter adapt = new SqlDataAdapter("SELECT * FROM AccountLogs INNER JOIN Accounts ON AccountLogs.AccountId = Accounts.aId WHERE UserId = '" + UserId + "'", connection);
             DataTable dtb1 = new DataTable();
             adapt.Fill(dtb1);
 
@@ -53,10 +53,9 @@ namespace PasswordKeeper
         {
             string searchContent = textBox1.Text;
 
-            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename='W:\Work\Projects\Personal Password Manager\PasswordKeeper\PasswordKeeper\Passwords.mdf';Integrated Security=True");
             connection.Open();
 
-            SqlDataAdapter adapt = new SqlDataAdapter("SELECT * FROM AccountLogs AS al INNER JOIN Accounts AS a ON al.AccountId = a.aId INNER JOIN users AS u ON u.uId = a.UserId WHEN UserId = " + UserId + " AND AccountName = '" + searchContent + "'", connection);
+            SqlDataAdapter adapt = new SqlDataAdapter("SELECT * FROM AccountLogs AS al INNER JOIN Accounts AS a ON al.AccountId = a.aId INNER JOIN users AS u ON u.uId = a.UserId WHERE a.UserId = '" + UserId + "' AND a.AccountName = '" + searchContent + "'", connection);
             DataTable dtb1 = new DataTable();
             adapt.Fill(dtb1);
 
