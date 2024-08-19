@@ -55,7 +55,7 @@ namespace PasswordKeeper
 
             connection.Open();
 
-            SqlDataAdapter adapt = new SqlDataAdapter("SELECT * FROM AccountLogs AS al INNER JOIN Accounts AS a ON al.AccountId = a.aId INNER JOIN users AS u ON u.uId = a.UserId WHERE a.UserId = '" + UserId + "' AND a.AccountName = '" + searchContent + "'", connection);
+            SqlDataAdapter adapt = new SqlDataAdapter("SELECT * FROM AccountLogs AS al INNER JOIN Accounts AS a ON al.AccountId = a.aId INNER JOIN users AS u ON u.uId = a.UserId WHERE a.UserId = '" + UserId + "' AND a.AccountName LIKE '%" + searchContent + "%'", connection);
             DataTable dtb1 = new DataTable();
             adapt.Fill(dtb1);
 
