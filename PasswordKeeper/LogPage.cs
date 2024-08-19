@@ -19,6 +19,17 @@ namespace PasswordKeeper
         public LogPage()
         {
             InitializeComponent();
+
+            connection.Open();
+
+            SqlDataAdapter adapt = new SqlDataAdapter("SELECT * FROM AccountLogs INNER JOIN Accounts ON AccountLogs.AccountId = Accounts.aId WHERE UserId = '" + UserId + "'", connection);
+            DataTable dtb1 = new DataTable();
+            adapt.Fill(dtb1);
+
+            dataGridView1.AutoGenerateColumns = false;
+            dataGridView1.DataSource = dtb1;
+
+            connection.Close();
         }
 
         private void LogPage_Load(object sender, EventArgs e)

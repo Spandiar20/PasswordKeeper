@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Account = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Password = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DateSet = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PrevPassword = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label2 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.Account = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PrevPassword = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Password = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DateSet = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,43 +49,15 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Account,
+            this.PrevPassword,
             this.Password,
-            this.DateSet,
-            this.PrevPassword});
+            this.DateSet});
             this.dataGridView1.Location = new System.Drawing.Point(3, 111);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(676, 638);
             this.dataGridView1.TabIndex = 12;
-            // 
-            // Account
-            // 
-            this.Account.DataPropertyName = "AccountName";
-            this.Account.HeaderText = "Account";
-            this.Account.Name = "Account";
-            this.Account.ReadOnly = true;
-            // 
-            // Password
-            // 
-            this.Password.DataPropertyName = "Password";
-            this.Password.HeaderText = "Password";
-            this.Password.Name = "Password";
-            this.Password.ReadOnly = true;
-            // 
-            // DateSet
-            // 
-            this.DateSet.DataPropertyName = "Date";
-            this.DateSet.HeaderText = "Date set";
-            this.DateSet.Name = "DateSet";
-            this.DateSet.ReadOnly = true;
-            // 
-            // PrevPassword
-            // 
-            this.PrevPassword.DataPropertyName = "PrevPassword";
-            this.PrevPassword.HeaderText = "Previous Password";
-            this.PrevPassword.Name = "PrevPassword";
-            this.PrevPassword.ReadOnly = true;
             // 
             // label2
             // 
@@ -145,6 +117,34 @@
             this.label1.TabIndex = 10;
             this.label1.Text = "Logs";
             // 
+            // Account
+            // 
+            this.Account.DataPropertyName = "AccountName";
+            this.Account.HeaderText = "Account";
+            this.Account.Name = "Account";
+            this.Account.ReadOnly = true;
+            // 
+            // PrevPassword
+            // 
+            this.PrevPassword.DataPropertyName = "PrevPassword";
+            this.PrevPassword.HeaderText = "Previous Password";
+            this.PrevPassword.Name = "PrevPassword";
+            this.PrevPassword.ReadOnly = true;
+            // 
+            // Password
+            // 
+            this.Password.DataPropertyName = "Password";
+            this.Password.HeaderText = "Password";
+            this.Password.Name = "Password";
+            this.Password.ReadOnly = true;
+            // 
+            // DateSet
+            // 
+            this.DateSet.DataPropertyName = "Date";
+            this.DateSet.HeaderText = "Date set";
+            this.DateSet.Name = "DateSet";
+            this.DateSet.ReadOnly = true;
+            // 
             // LogPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -176,8 +176,8 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Account;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PrevPassword;
         private System.Windows.Forms.DataGridViewTextBoxColumn Password;
         private System.Windows.Forms.DataGridViewTextBoxColumn DateSet;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PrevPassword;
     }
 }

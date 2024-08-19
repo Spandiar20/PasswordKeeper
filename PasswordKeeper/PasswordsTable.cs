@@ -82,5 +82,12 @@ namespace PasswordKeeper
             log.Show();
             log.UserId = UserId;
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            DeletePage delPage = new DeletePage();
+            delPage.Show();
+            delPage.UserId = UserId;
+        }
     }
 }
