@@ -18,7 +18,7 @@ namespace PasswordKeeper
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click_1(object sender, EventArgs e)
         {
             string userName = textBox1.Text;
             string password = textBox2.Text;
